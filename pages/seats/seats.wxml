@@ -1,0 +1,46 @@
+<view class="page">
+    <view class="hd">
+        <view class="hd-row">
+            <text class="hd-t">全班座位</text>
+            <text class="hd-n">{{taken}}/{{total}}</text>
+        </view>
+        <text class="hd-s" wx:if="{{mySeatText}}">你的位置 · {{mySeatText}}</text>
+        <text class="hd-s" wx:else>还没签到，先回到首页选自己的名字</text>
+    </view>
+
+    <view class="stage">
+        <text class="stage-t">讲 台</text>
+    </view>
+
+    <scroll-view class="grid-wrap" scroll-x scroll-y>
+        <view class="grid">
+            <view class="col-head">
+                <view class="corner"></view>
+                <view class="ch" wx:for="{{cols}}" wx:key="*this" style="width: {{cell}}rpx">{{item}}</view>
+            </view>
+            <view class="grow" wx:for="{{rows}}" wx:key="key">
+                <view class="rlabel" style="height: {{cell}}rpx">{{item.no}}</view>
+                <view
+                    class="seat {{c.cls}} {{c.aisle ? 'aisle' : ''}}"
+                    wx:for="{{item.cells}}"
+                    wx:for-item="c"
+                    wx:key="key"
+                    style="width: {{cell}}rpx; height: {{cell}}rpx"
+                >
+                    <text class="seat-t">{{c.label}}</text>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class="legend">
+        <view class="lg"><view class="dot dot-free"></view><text class="lg-t">空位</text></view>
+        <view class="lg"><view class="dot dot-taken"></view><text class="lg-t">已坐（显示姓氏）</text></view>
+        <view class="lg"><view class="dot dot-mine"></view><text class="lg-t">你</text></view>
+    </view>
+
+    <view class="zoom">
+        <text class="zoom-b" bindtap="zoomOut">−</text>
+        <text class="zoom-b" bindtap="zoomIn">+</text>
+    </view>
+</view>

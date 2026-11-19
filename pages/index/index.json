@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "课堂签到",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {}
+}

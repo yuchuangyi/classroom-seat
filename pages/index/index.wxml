@@ -1,0 +1,90 @@
+<view class="page">
+    <view class="hd">
+        <view class="hd-row">
+            <text class="hd-t">课堂签到</text>
+            <text class="hd-n">{{done}}/{{total}}</text>
+        </view>
+        <text class="hd-s">签到一个，分一个座位 · 先到先得</text>
+        <view class="meter">
+            <view class="meter-fill" style="width: {{pct}}%"></view>
+        </view>
+    </view>
+
+    <view class="state" wx:if="{{mode === 'loading'}}">
+        <view class="spin"></view>
+        <text class="dim">正在读取名单</text>
+    </view>
+
+    <view class="state" wx:elif="{{mode === 'error'}}">
+        <text class="state-t">连不上服务器</text>
+        <text class="dim">{{errMsg}}</text>
+        <button class="btn-ghost retry" bindtap="reload">重试</button>
+    </view>
+
+    <block wx:elif="{{mode === 'result'}}">
+        <scroll-view class="result" scroll-y>
+            <view class="ticket">
+                <text class="ticket-lab">你的座位</text>
+                <text class="ticket-seat">{{seatText}}</text>
+                <text class="ticket-name">{{me.name}}</text>
+            </view>
+
+            <view class="mini">
+                <view class="mini-row" wx:for="{{mini}}" wx:key="key">
+                    <text class="mini-no">{{item.no}}</text>
+                    <view class="mini-c {{c.cls}}" wx:for="{{item.cells}}" wx:for-item="c" wx:key="key">
+                        <text class="mini-t">{{c.label}}</text>
+                    </view>
+                </view>
+                <text class="mini-cap">以你为中心的 5×5，上方是讲台方向</text>
+            </view>
+
+            <view class="neigh">
+                <view class="neigh-item" wx:for="{{neighbors}}" wx:key="dir">
+                    <text class="neigh-dir">{{item.dir}}</text>
+                    <text class="neigh-name {{item.empty ? 'dim' : ''}}">{{item.name}}</text>
+                </view>
+            </view>
+
+            <button class="btn-primary big" bindtap="goSeats">看全班座位图</button>
+            <text class="tip">座位随机分配，不能自己换。走错排了就看一眼座位图。</text>
+            <text class="tip-link" bindtap="askFix">名字点错了？</text>
+        </scroll-view>
+    </block>
+
+    <block wx:else>
+        <view class="search">
+            <input
+                class="search-in"
+                placeholder="输入你的名字"
+                placeholder-class="ph"
+                value="{{keyword}}"
+                confirm-type="search"
+                bindinput="onSearch"
+            />
+            <text class="search-x" wx:if="{{keyword}}" bindtap="clearSearch">×</text>
+        </view>
+
+        <scroll-view class="list" scroll-y>
+            <view
+                class="row"
+                wx:for="{{list}}"
+                wx:key="name"
+                data-name="{{item.name}}"
+                data-taken="{{item.taken}}"
+                bindtap="onPick"
+            >
+                <text class="row-n">{{item.name}}</text>
+                <text class="row-s {{item.taken ? 'row-s-done' : ''}}">{{item.note}}</text>
+            </view>
+            <view class="empty" wx:if="{{list.length === 0}}">
+                <text class="dim">名单里没有「{{keyword}}」，核对一下名字</text>
+            </view>
+        </scroll-view>
+
+        <view class="ft">
+            <text class="link" bindtap="goSeats">全班座位图</text>
+            <text class="link link-dim" bindtap="goAdmin">老师入口</text>
+        </view>
+    </block>
+</view>

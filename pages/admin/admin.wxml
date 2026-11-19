@@ -1,0 +1,38 @@
+<view class="page">
+    <view class="hd">
+        <view class="hd-row">
+            <text class="hd-t">老师端</text>
+            <text class="hd-n">{{done}}/{{total}}</text>
+        </view>
+        <view class="meter"><view class="meter-fill" style="width: {{pct}}%"></view></view>
+    </view>
+
+    <view class="stat">
+        <view class="stat-i">
+            <text class="stat-n">{{done}}</text>
+            <text class="stat-l">已签到</text>
+        </view>
+        <view class="stat-i">
+            <text class="stat-n">{{left}}</text>
+            <text class="stat-l">未签到</text>
+        </view>
+        <view class="stat-i">
+            <text class="stat-n">{{free}}</text>
+            <text class="stat-l">空座</text>
+        </view>
+    </view>
+
+    <view class="ops">
+        <button class="btn-ghost op" open-type="share">转发签到入口</button>
+        <button class="btn-ghost op" bindtap="goSeats">座位图</button>
+        <button class="btn-ghost op op-warn" bindtap="doReset">重置本场</button>
+    </view>
+
+    <scroll-view class="list" scroll-y>
+        <view class="row" wx:for="{{list}}" wx:key="name">
+            <text class="row-i">{{item.no}}</text>
+            <text class="row-n">{{item.name}}</text>
+            <text class="row-s {{item.taken ? 'ok' : ''}}">{{item.note}}</text>
+        </view>
+    </scroll-view>
+</view>

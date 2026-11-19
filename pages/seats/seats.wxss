@@ -1,0 +1,179 @@
+.page {
+    box-sizing: border-box;
+    display: flex;
+    height: 100vh;
+    padding: 28rpx 24rpx 20rpx;
+    flex-direction: column;
+}
+
+.hd-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.hd-t {
+    font-size: 44rpx;
+    font-weight: 700;
+    letter-spacing: 2rpx;
+}
+
+.hd-n {
+    color: #8fd3c0;
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+.hd-s {
+    display: block;
+    margin-top: 8rpx;
+    color: rgba(238, 243, 234, 0.5);
+    font-size: 24rpx;
+}
+
+.stage {
+    margin: 22rpx 0 14rpx;
+    padding: 10rpx 0;
+    border: 2rpx dashed rgba(233, 217, 139, 0.45);
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.stage-t {
+    color: rgba(233, 217, 139, 0.85);
+    font-size: 24rpx;
+    letter-spacing: 12rpx;
+}
+
+.grid-wrap {
+    flex: 1;
+    white-space: nowrap;
+}
+
+.grid {
+    display: inline-block;
+    padding-right: 8rpx;
+}
+
+.col-head {
+    display: flex;
+    margin-bottom: 6rpx;
+}
+
+.corner {
+    width: 44rpx;
+    flex: none;
+}
+
+.ch {
+    margin-right: 6rpx;
+    color: rgba(238, 243, 234, 0.3);
+    font-size: 20rpx;
+    text-align: center;
+}
+
+.grow {
+    display: flex;
+    margin-bottom: 6rpx;
+}
+
+.rlabel {
+    display: flex;
+    width: 44rpx;
+    align-items: center;
+    flex: none;
+    color: rgba(238, 243, 234, 0.3);
+    font-size: 20rpx;
+}
+
+.seat {
+    display: flex;
+    align-items: center;
+    margin-right: 6rpx;
+    border-radius: 8rpx;
+    justify-content: center;
+}
+
+.seat-t {
+    font-size: 24rpx;
+    line-height: 1;
+}
+
+.seat.free {
+    border: 2rpx dashed rgba(238, 243, 234, 0.18);
+    background: rgba(238, 243, 234, 0.03);
+}
+
+.seat.aisle {
+    margin-right: 20rpx;
+}
+
+.seat.taken {
+    border: 2rpx solid rgba(143, 211, 192, 0.35);
+    background: #274338;
+    color: rgba(238, 243, 234, 0.82);
+}
+
+.seat.mine {
+    border: 2rpx solid #e9d98b;
+    background: #e9d98b;
+    color: #1a241e;
+    font-weight: 700;
+    box-shadow: 0 0 0 4rpx rgba(233, 217, 139, 0.22);
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    padding-top: 16rpx;
+    flex-wrap: wrap;
+}
+
+.lg {
+    display: flex;
+    align-items: center;
+    margin-right: 28rpx;
+}
+
+.dot {
+    width: 20rpx;
+    height: 20rpx;
+    margin-right: 10rpx;
+    border-radius: 4rpx;
+}
+
+.dot-free {
+    border: 2rpx dashed rgba(238, 243, 234, 0.35);
+}
+
+.dot-taken {
+    background: #274338;
+}
+
+.dot-mine {
+    background: #e9d98b;
+}
+
+.lg-t {
+    color: rgba(238, 243, 234, 0.45);
+    font-size: 22rpx;
+}
+
+.zoom {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12rpx;
+}
+
+.zoom-b {
+    display: flex;
+    width: 72rpx;
+    height: 56rpx;
+    align-items: center;
+    margin-left: 16rpx;
+    border: 2rpx solid rgba(238, 243, 234, 0.2);
+    border-radius: 10rpx;
+    color: rgba(238, 243, 234, 0.7);
+    font-size: 34rpx;
+    justify-content: center;
+}

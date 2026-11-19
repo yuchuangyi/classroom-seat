@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/seats/seats",
+    "pages/admin/admin"
+  ],
+  "window": {
+    "navigationBarTitleText": "课堂签到",
+    "navigationBarBackgroundColor": "#14201b",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#14201b",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
